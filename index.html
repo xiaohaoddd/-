@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#11111a" />
+    <title>月眠 · 助眠音景</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <a class="brand" href="#top" aria-label="月眠首页"><span>☾</span> 月眠</a>
+        <p>今晚，慢一点入睡。</p>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <p class="eyebrow">SLEEP SOUNDS</p>
+        <h1>给夜晚一点<br /><em>温柔的声音。</em></h1>
+        <p class="intro">选择一个音景，让呼吸和思绪一起慢慢安静下来。</p>
+      </section>
+
+      <section aria-labelledby="sound-title">
+        <div class="section-heading"><h2 id="sound-title">此刻想听</h2><span>4 种音景</span></div>
+        <div class="sound-grid" id="soundGrid">
+          <button class="sound-card active" data-sound="rain" aria-pressed="true"><span class="art rain">⋮</span><span><b>雨落窗前</b><small>细密雨声 · 放松思绪</small></span><i>↗</i></button>
+          <button class="sound-card" data-sound="ocean" aria-pressed="false"><span class="art ocean">〰</span><span><b>夜海潮汐</b><small>轻柔海浪 · 深度休息</small></span><i>↗</i></button>
+          <button class="sound-card" data-sound="brown" aria-pressed="false"><span class="art brown">∿</span><span><b>棕噪音</b><small>低频白噪 · 隔绝干扰</small></span><i>↗</i></button>
+          <button class="sound-card" data-sound="forest" aria-pressed="false"><span class="art forest">⌇</span><span><b>林间微风</b><small>风过树梢 · 自然陪伴</small></span><i>↗</i></button>
+        </div>
+      </section>
+
+      <section class="player" aria-label="播放器">
+        <div class="now-playing"><span class="mini-art rain" id="miniArt">⋮</span><div><small>正在播放</small><h2 id="trackName">雨落窗前</h2></div><span class="waves" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+        <div class="controls">
+          <button class="round secondary" id="backward" aria-label="后退十秒">↶<small>10</small></button>
+          <button class="round play" id="playButton" aria-label="播放"><span>▶</span></button>
+          <button class="round secondary" id="forward" aria-label="前进十秒">↷<small>10</small></button>
+        </div>
+        <div class="volume"><span>音量</span><input id="volume" type="range" min="0" max="100" value="42" aria-label="音量" /><output id="volumeValue">42%</output></div>
+      </section>
+
+      <section class="timer-panel" aria-labelledby="timer-title">
+        <div><p class="eyebrow">SLEEP TIMER</p><h2 id="timer-title">让声音陪你到睡着</h2><p id="timerMessage">未设置定时关闭</p></div>
+        <div class="timer-actions" id="timerActions"><button data-minutes="15">15 分钟</button><button data-minutes="30" class="selected">30 分钟</button><button data-minutes="45">45 分钟</button><button data-minutes="0">关闭</button></div>
+      </section>
+      <section class="music-panel" aria-labelledby="music-title">
+        <div><p class="eyebrow">MY MUSIC</p><h2 id="music-title">我的睡前音乐</h2><p>添加自己喜欢的音乐，只保存在这台设备上。</p></div>
+        <label class="add-music" for="musicInput"><span>＋</span> 添加音乐</label>
+        <input id="musicInput" type="file" accept="audio/*" multiple hidden />
+        <div class="track-list" id="trackList" aria-live="polite"><p class="empty-state">还没有添加音乐。选择一首熟悉的旋律，留给今晚。</p></div>
+      </section>
+    </main>
+    <footer>声音在浏览器中实时生成 · 请调低音量后使用</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
